@@ -1,0 +1,16 @@
+{%extends '../base.html'%}
+{%block title%} Student Dashboard {%endblock%}
+
+{%block content%}
+<h1>Welcome to Student Dashboard</h1>
+    {%if student%}
+        <table>
+            <tr>
+                <th>Student Name</th>
+            </tr>
+        </table>
+    {%else%}
+        <a href="{{url 'stu_detail_entry'}}">Enter Details</a>
+    {%endif%}
+<a href="{%url 'logout'%}">Logout</a>
+{%endblock%}
