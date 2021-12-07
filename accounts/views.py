@@ -40,6 +40,8 @@ class LoginPage(views.View):
                 print('reached')
                 if user.is_student:
                     return(redirect(reverse('stu_dash')))
+                if user.is_spc or user.is_superSpc:
+                    return(redirect(reverse('stu_dash')))
                 return(redirect(reverse('home')))
             else:
                 if UserModel.objects.filter(email=email).exists():

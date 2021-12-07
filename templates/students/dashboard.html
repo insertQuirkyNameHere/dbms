@@ -1,0 +1,33 @@
+{%extends '../base.html'%}
+{%block title%} Student Dashboard {%endblock%}
+
+{%block content%}
+    <h1>Welcome to Student Dashboard</h1>
+    <ul class='messages'>
+        {%for message in messages %}
+            <li {%if message.tags %} class="{{message.tags}}"{% endif %}>{{message}}</li>
+        {% endfor%}
+    </ul>
+        {%if student%}
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>CGPA</th>
+                    <th>Backlogs</th>
+                    <th>Gap Years</th>
+                </tr>
+                <tr>
+                    {%for field in student%}
+                    <td>{{field.name}}</td>
+                    <td>{{field.cgpa}}</td>
+                    <td>{{field.backlogs}}</td>
+                    <td>{{field.gap_years}}</td>
+                    {%endfor%}
+                </tr>
+            </table>
+            <a href="">Request Edit</a>
+        {%else%}
+            <a href="{%url 'stu_detail_entry'%}">Enter Details</a>
+        {%endif%}
+    <a href="{%url 'logout'%}">Logout</a>
+{%endblock%}
