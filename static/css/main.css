@@ -1,0 +1,16 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: aliceblue;
+    font-weight: 700;
+}
+
+a{
+    text-decoration: none;
+}
+
+input{
+    border-radius: 6px;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}

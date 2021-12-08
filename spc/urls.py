@@ -3,5 +3,5 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('dashboard', views.DashBoard.as_view(), name='stu_dash'),
+    path('dashboard/', views.DashBoard.as_view(), name='spc_dash'),
 ]

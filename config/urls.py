@@ -21,6 +21,8 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('userScramble/', include('users.urls')),
+    path('spc/', include('spc.urls')),
+    path('faculty/', include('faculty.urls')),
     path('users/', include('users.urls')),
     path('students/', include('student.urls')),
     path('api/', include('careerPortalApi.urls')),
