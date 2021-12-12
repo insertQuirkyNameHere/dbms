@@ -1,0 +1,40 @@
+{%extends '../base.html'%}
+{%block title%} Personal Details {%endblock%}
+{%block intStylesheets%}
+<link rel="stylesheet" href="/static/css/student/personalDetails.css">{%endblock%}
+{%block navLinks%}
+<li class="navigation-links"><a href="{%url 'spc_personal_details'%}">Personal Details</a></li>
+<li class="navigation-links"><a href="{%url 'update_req'%}">Edit Requests</a></li>
+<li class="navigation-links"><a href="{%url 'stu_list'%}">Students List</a></li>
+<li class="navigation-links"><a href="">Companies List</a></li>
+<li class="navigation-links"><a href="">Offers List</a></li>
+<li class="navigation-links"><a href="{%url 'logout'%}">Logout</a></li>
+{%endblock%}
+
+{%block content%}
+<h1>Personal Details</h1>
+
+<div class="user-details">
+    <h2>{{user}}</h2>
+    <h2>Hello, {{spc.name}}</h2>
+</div>
+
+<div class="table-container">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>CGPA</th>
+            <th>Backlogs</th>
+            <th>Gap Years</th>
+            <th>Department</th>
+        </tr>
+        <tr>
+            <td>{{spc.name}}</td>
+            <td>{{spc.cgpa}}</td>
+            <td>{{spc.backlogs}}</td>
+            <td>{{spc.gap_years}}</td>
+            <td>{{spc.dept}}</td>
+        </tr>
+    </table>
+</div>
+{%endblock%}

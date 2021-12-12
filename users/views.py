@@ -11,10 +11,10 @@ class UserScramble(View):
     def get(self, request):
         curr_user = request.user
         if curr_user.is_student:
-            redirect(reverse('stu_dash'))
+            return redirect(reverse('stu_dash'))
         elif curr_user.is_placement:
-            redirect(reverse('placement_dash'))
+            return redirect(reverse('placement_dash'))
         elif curr_user.is_faculty:
-            redirect(reverse('faculty_dash'))
+            return redirect(reverse('faculty_dash'))
         elif curr_user.is_superSpc:
-            redirect(reverse('superSpc_dash'))
+            return redirect(reverse('superSpc_dash'))

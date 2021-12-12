@@ -1,6 +1,9 @@
+{%block navbar%}
 <nav>
-    <ul>
-        <li><a href="{%url 'login'%}">Login</a></li>
-        <li><a href="{%url 'logout'%}">Logout</a></li>
+    <span>N A V B A R</span>
+    <ul class="nav-links">
+        {%block navLinks%}
+        {%endblock%}
     </ul>
 </nav>
+{%endblock%}

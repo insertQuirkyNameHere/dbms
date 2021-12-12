@@ -18,8 +18,8 @@ class RegisterStudent(views.View):
     def post(self, request):
         form = forms.CreateStudentUserForm(request.POST)
         if form.is_valid():
-            email = form.cleaned_data['email']
-            pwd = form.cleaned_data['password']
+            #mail = form.cleaned_data['email']
+            #pwd = form.cleaned_data['password']
             form.save()
         return(redirect('home'))
 
@@ -30,14 +30,15 @@ class LoginPage(views.View):
     
     def post(self, request):
         form = forms.LoginForm(request.POST)
+        #print(str(request.POST))
         if form.is_valid():
             email   = form.cleaned_data['email']
             pwd     = form.cleaned_data['password']
             user = authenticate(username=email, password=pwd)
-            print(str(user))
+            #print(str(user))
             if user is not None:
                 login(request, user)
-                print('reached')
+                #print('reached')
                 if user.is_student:
                     return(redirect(reverse('stu_dash')))
                 if user.is_spc:

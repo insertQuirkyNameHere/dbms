@@ -1,7 +1,17 @@
 {%extends '../base.html'%}
 {%block title%} Data Entry {%endblock%}
 
+{%block navLinks%}
+<li class="nav-links"><a href="{%url 'stu_personal_details'%}">Personal Details</a></li>
+<li class="nav-links"><a href="">Companies</a></li>
+<li class="nav-links"><a href="{%url 'logout'%}">Logout</a></li>
+{%endblock%}
+
 {%block content%}
+<h1>Student Detail Entry</h1>
+{%if user.is_spc%}
+<p>You were redirected here because your personal details have not been entered yet and they are essential</p>
+{%endif%}
     <form method="post">
         <ul class='messages'>
             {%for message in messages %}
@@ -9,7 +19,19 @@
             {% endfor%}
         </ul>
         {%csrf_token%}
-        {{form.as_p}}
-    <button type="submit">Submit</button>
+        {%for field in form%}
+        
+            <div class="fieldWrapper">
+                <div class="field-label">
+                    {%if not field.label == 'User'%}
+                    {{field.label}}
+                    {%endif%}
+                </div>
+                <div>
+                    {{field}}
+                </div>
+            </div>
+        {%endfor%}
+    <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 {%endblock%}

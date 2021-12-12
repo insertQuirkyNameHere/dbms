@@ -1,7 +1,7 @@
 {%extends '../base.html'%}
 
 {%block title%}Login{%endblock%}
-
+{%block intStylesheets%}<link rel="stylesheet" href="/static/css/registration/login.css">{%endblock%}
 {%block content%}
     <h1>Login</h1>
     <form method="post">
@@ -16,6 +16,8 @@
                 {{field}}
             </div>
         {%endfor%}
-        <button type="submit">Log In</button>
+        <div class="fieldWrapper">
+            <button type="submit" class="btn btn-primary">Log In</button>
+        </div>
     </form>
 {%endblock%}

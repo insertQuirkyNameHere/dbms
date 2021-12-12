@@ -1,0 +1,40 @@
+{%extends '../base.html'%}
+{%block title%} Personal Details {%endblock%}
+{%block intStylesheets%}<link rel="stylesheet" href="/static/css/student/personalDetails.css">{%endblock%}
+{%block navLinks%}
+<li class="navigation-links"><a href="{%url 'stu_dash'%}">Dashboard</a></li>
+<li class="navigation-links"><a href="">Companies</a></li>
+<li class="navigation-links"><a href="{%url 'logout'%}">Logout</a></li>
+{%endblock%}
+
+{%block content%}
+<h1>Personal Details</h1>
+
+<div class="user-details">
+    <h2 >{{user}}</h2>
+    <h2>Hello, {{student.name}}</h2>
+</div>
+
+<div class="table-container">
+<table class="table table-striped table-bordered">
+    <tr class="table-secondary">
+        <th>Name</th>
+        <th>CGPA</th>
+        <th>Backlogs</th>
+        <th>Gap Years</th>
+        <th>Department</th>
+    </tr>
+    <tr>
+        <td>{{student.name}}</td>
+        <td>{{student.cgpa}}</td>
+        <td>{{student.backlogs}}</td>
+        <td>{{student.gap_years}}</td>
+        <td>{{student.dept}}</td>
+    </tr>
+</table>
+</div>
+
+<a href="{%url 'stu_update_details'%}" class="btn btn-primary edit-table">Request Edit</a>
+
+
+{%endblock%}

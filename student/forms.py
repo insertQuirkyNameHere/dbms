@@ -1,5 +1,6 @@
 from django import forms
 from django.forms import fields
+from django.http import request
 from . import models
 from spc.models import UpdateStudentDetails
 
@@ -7,7 +8,7 @@ class StudentDetailsForm(forms.ModelForm):
 
     class Meta:
         model = models.Student
-        fields = ['name', 'user', 'cgpa', 'backlogs', 'gap_years']
+        fields = '__all__'
         
     def save(self, commit=True):
         student = super().save(commit=False)
@@ -18,7 +19,7 @@ class StudentDetailsForm(forms.ModelForm):
 class UpdateStudentDetailsForm(forms.ModelForm):
     class Meta:
         model = UpdateStudentDetails
-        fields = ['name', 'user', 'cgpa', 'backlogs', 'gap_years']
+        fields = '__all__'
 
     def save(self, commit=True):
         studentUpdateEntry = super().save(commit=False)

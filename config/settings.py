@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-m87ys+_ay!b4b2gvzai6jx3dcjad1&@nxji^bn=2as4q+&v)%#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['4160-2402-3a80-924-87be-8997-c40b-60a8-7feb.ngrok.io', '127.0.0.1']
 
 
 # Application definition
@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'accounts',
     'student',
     'spc',
+    'department',
     'careerPortalApi',
     'rest_framework',
     'django.contrib.admin',
