@@ -1,0 +1,43 @@
+{%extends '../base.html'%}
+{%block title%} Student Dashboard {%endblock%}
+{%block intStylesheets%}<link rel="stylesheet" href="/static/css/spc/spc.css">{%endblock%}
+
+{%block navLinks%}
+<li class="navigation-links"><a href="{%url 'spc_personal_details'%}">Personal Details</a></li>
+<li class="navigation-links"><a href="{%url 'update_req'%}">Edit Requests</a></li>
+<li class="navigation-links"><a href="{%url 'stu_list'%}">Students List</a></li>
+<li class="navigation-links"><a href="">Companies List</a></li>
+<li class="navigation-links"><a href="">Offers List</a></li>
+<li class="navigation-links"><a href="{%url 'logout'%}">Logout</a></li>
+{%endblock%}
+
+{%block content%}
+<h1>SPC Dashboard</h1>
+<div class="user-details">
+    <h2 >{{user}}</h2>
+    {%if spc%}
+        <h2>Hello, {{spc.name}}</h2>
+    {%endif%}
+</div>
+{%if spc%}
+    <div class="table-container">
+        <table class="table table-hover table-striped table-bordered">
+            <tr>
+                <th>Name</th>
+                <td>{{spc.name}}</td>
+            </tr>
+            <tr>
+                <th>Department</th>
+                <td>{{spc.dept}}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>Placed</td>
+            </tr>
+        </table>
+    </div>
+{%else%}
+    <p>Your details are not in the system yet. Pls enter them <a href="{%url 'stu_personal_details'%}" class="visual-link">here</a> or go to "Personal Details" section in the Navbar</p>
+{%endif%}
+{%endblock%}
+

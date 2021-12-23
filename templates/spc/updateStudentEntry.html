@@ -1,0 +1,62 @@
+{%extends '../base.html'%}
+{%block title%} Data Entry {%endblock%}
+{%block intStylesheets%}
+    <link rel="stylesheet" href="/static/css/spc/spc.css">
+    <link rel="stylesheet" href="/static/css/spc/updateStudentEntry.css">
+{%endblock%}
+{%block navLinks%}
+<li class="navigation-links"><a href="{%url 'spc_personal_details'%}">Personal Details</a></li>
+<li class="navigation-links"><a href="{%url 'update_req'%}">Edit Requests</a></li>
+<li class="navigation-links"><a href="{%url 'stu_list'%}">Students List</a></li>
+<li class="navigation-links"><a href="">Companies List</a></li>
+<li class="navigation-links"><a href="">Offers List</a></li>
+<li class="navigation-links"><a href="{%url 'logout'%}">Logout</a></li>
+{%endblock%}
+
+{%block content%}
+<h1>Student Update Requests</h1>
+
+<div class="user-details">
+    <h2>{{user}}</h2>
+    <h2>Hello, {{spc.name}}</h2>
+</div>
+
+{%if updateReq%}
+<div class="table-container">
+    <table class="table table-striped table-bordered">
+        <tr class="table-secondary">
+            <th>Name</th>
+            <th>CGPA</th>
+            <th>Backlogs</th>
+            <th>Gap Years</th>
+            <th>Department</th>
+            <th>Action</th>
+        </tr>
+        {%for req in updateReq%}
+        <tr>
+            <td>{{req.name}}</td>
+            <td>{{req.cgpa}}</td>
+            <td>{{req.backlogs}}</td>
+            <td>{{req.gap_years}}</td>
+            <td>{{req.dept}}</td>
+            <td>
+                <form method="post">
+                    {%csrf_token%}
+                    <input type="hidden" name="userId" value="{{req.user_id}}">
+                    <input type="hidden" name="name" value="{{req.name}}">
+                    <input type="hidden" name="cgpa" value="{{req.cgpa}}">
+                    <input type="hidden" name="backlogs" value="{{req.backlogs}}">
+                    <input type="hidden" name="gap" value="{{req.gap_years}}">
+                    <input type="hidden" name="dept" value="{{req.dept_id}}">
+                    <button class="btn btn-success" type="submit" name="accept" value="1">Accept</button>
+                    <button class="btn btn-danger" type="submit" name="reject"  value="0    ">Reject</button>
+                </form>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+    </div>
+{%else%}
+    <p class="no-action">There are no Update requests that require your attention at this time</p>
+{%endif%}
+{%endblock%}

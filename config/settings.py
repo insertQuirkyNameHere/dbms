@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-m87ys+_ay!b4b2gvzai6jx3dcjad1&@nxji^bn=2as4q+&v)%#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['4160-2402-3a80-924-87be-8997-c40b-60a8-7feb.ngrok.io', '127.0.0.1']
 
 
 # Application definition
@@ -33,6 +33,11 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'users',
     'accounts',
+    'student',
+    'spc',
+    'department',
+    'careerPortalApi',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -120,6 +125,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 STATIC_URL = '/static/'
 

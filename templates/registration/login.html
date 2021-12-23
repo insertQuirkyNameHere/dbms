@@ -1,7 +1,23 @@
-<h2>Log In</h2>
+{%extends '../base.html'%}
 
-<form method="post">
-    {%csrf_token%}
-    {{form.as_p}}
-    <button type="submit">Log In</button>
-</form>
+{%block title%}Login{%endblock%}
+{%block intStylesheets%}<link rel="stylesheet" href="/static/css/registration/login.css">{%endblock%}
+{%block content%}
+    <h1>Login</h1>
+    <form method="post">
+        <ul class='messages'>
+            {%for message in messages %}
+                <li {%if message.tags %} class="{{message.tags}}"{% endif %}>{{message}}</li>
+            {% endfor%}
+        </ul>
+        {%csrf_token%}
+        {%for field in form%}
+            <div class="fieldWrapper">
+                {{field}}
+            </div>
+        {%endfor%}
+        <div class="fieldWrapper">
+            <button type="submit" class="btn btn-primary">Log In</button>
+        </div>
+    </form>
+{%endblock%}

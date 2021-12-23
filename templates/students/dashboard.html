@@ -1,0 +1,26 @@
+{%extends '../base.html'%}
+{%block title%} Student Dashboard {%endblock%}
+
+
+{%block navLinks%}
+<li class="navigation-links"><a href="{%url 'stu_personal_details'%}">Personal Details</a></li>
+<li class="navigation-links"><a href="">Companies</a></li>
+<li class="navigation-links"><a href="{%url 'logout'%}">Logout</a></li>
+{%endblock%}
+
+{%block content%}
+<h1>Welcome to Student Dashboard</h1>
+<div class="user-details">
+    <h2 >{{user}}</h2>
+    {%if student%}
+        <h2>Hello, {{student.name}}</h2>
+    {%endif%}
+</div>
+{%if student%}
+    <h3>Name: {{student.name}}</h3>
+    <h3>Department: {{student.dept}}</h3>
+    <h3>Status: Placed</h3>
+{%else%}
+    <p>Your details are not in the system yet. Pls enter them <a href="{%url 'stu_personal_details'%}" class="visual-link">here</a> or go to "Personal Details" section in the Navbar</p>
+{%endif%}
+{%endblock%}
